@@ -444,3 +444,16 @@ localStorage.removeItem("total_alumnos");                  // vaciar
 - Recuperar en `window.onload`.
 - Tras insertar: `document.getElementById("miFormulario").reset()`.
 - Vaciar todo: `tbody.innerHTML = ""`, contadores a 0 y `removeItem`.
+
+## Puntos débiles — ronda final (12-nov)
+
+- `for (const v of arr)` → **valores**; `for (const i in arr)` → **índices/claves** (string).
+- `for...of` sobre **objeto literal** → `TypeError: obj is not iterable`. Usar `Object.keys/values/entries` o `for...in`.
+- **Map** itera **pares `[clave, valor]`**: `console.log(par)` → `["a", 1]`. Solo claves: `.keys()`.
+- **Set** deduplica **al construir**: `new Set([1,2,2,3,1])` → 3 valores; itera solo valores.
+- `Object.entries(o)` → array de pares; `Object.keys(o)` → array de claves; desestructurar `const [k,v]`.
+- `[...palabra]` → array de caracteres; `join("-")` → `h-o-l-a`.
+- `arr.length = 2` trunca y **no recupera**; subirla crea huecos.
+- `Map.get` ausente → `undefined`; `set("a", undefined)` sí crea la clave (`size` sube).
+- `sort()` sin comparador ordena **como texto**: `[1,2,15]` → `1,15,2`.
+- `Math.round(-1.6)` → `-2`; `typeof null` → `"object"`.
